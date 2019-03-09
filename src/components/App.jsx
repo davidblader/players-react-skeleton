@@ -6,16 +6,15 @@ import Roster from './Roster';
 
 const App = () =>
   (
-    <React.Fragment>
-      <Login />
-      <Registration />
-      <Roster />
-      <Router >
-        <Link to="/" />
+    <Router >
+      <div>
+        <Link to="/">Login</Link>
+        <Link to="/register">Sign-up</Link>
+        <Route path="/" exact component={Login} />
+        <Route path="/register" component={Registration} />
         <Route />
-      </Router>
-      <div>Replace me with something you can be proud of.</div>
-    </React.Fragment>
+      </div>
+    </Router>
   );
 
 

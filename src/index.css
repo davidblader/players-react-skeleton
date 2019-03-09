@@ -5,4 +5,7 @@
 
 body {
   margin: 1em;
+  background-image: url('img/animal-crossing-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
