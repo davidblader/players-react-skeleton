@@ -8,4 +8,37 @@ body {
   background-image: url('img/animal-crossing-background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  display: block;
+  font-family: 'Helvetica', serif;
+}
+
+#login {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  text-align: center;
+  background-color: rgba(200, 256, 200, 0.5);
+  padding: 10px;
+  border-radius: 12px;
+  top: 50%;
+}
+
+#login-input > input {
+  padding: 10px;
+}
+
+#login-input > div {
+  padding: 3px;
+}
+
+@font-face {
+  font-family: 'Animal-Crossing';
+  src: url('fonts/Animal-Crossing-Wild-World.ttf');
+}
+
+#homepage {
+  font-family: 'Animal-Crossing', serif;
+  color: gold;
+  font-size: 500%;
 }

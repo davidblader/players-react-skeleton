@@ -1,21 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Homepage from './Homepage';
 import Login from './Login';
 import Registration from './Registration';
-import Roster from './Roster';
 
 const App = () =>
   (
     <Router >
-      <div>
-        <Link to="/">Login</Link>
-        <Link to="/register">Sign-up</Link>
-        <Route path="/" exact component={Login} />
+      <Switch>
+        <Route exact path="/" component={Homepage} />
+        <Route path="/login" component={Login} />
         <Route path="/register" component={Registration} />
-        <Route />
-      </div>
+      </Switch>
     </Router>
   );
-
 
 export default App;
