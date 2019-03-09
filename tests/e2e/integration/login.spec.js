@@ -1,4 +1,4 @@
-describe('Login Page', () => {
+describe('Login.jsx Page', () => {
 	it('Contains email and password labels', () => {
 		cy.visit('/login');
 		cy.contains('Email');
