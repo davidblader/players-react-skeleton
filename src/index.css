@@ -8,8 +8,13 @@ body {
   background-image: url('img/animal-crossing-background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  display: block;
   font-family: 'Helvetica', serif;
+  height: 100vh;
+}
+
+#root {
+  width: inherit;
+  height: inherit;
 }
 
 #login {
@@ -37,8 +42,36 @@ body {
   src: url('fonts/Animal-Crossing-Wild-World.ttf');
 }
 
-#homepage {
+.animal-crossing-header {
   font-family: 'Animal-Crossing', serif;
   color: gold;
-  font-size: 500%;
+  font-size: 400%;
+}
+
+.animal-crossing-btn {
+  text-align: center;
+  color: white;
+  background-color: #55FF55;
+  border-radius: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+}
+
+#homepage {
+  background-image: url('img/wood-texture.jpg');
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px;
+  text-align: center;
+  padding: 10px;
+  width: 40%;
+}
+
+.almost-centered {
+  position: relative;
+  top: 50%;
+  transform: translateY(-75%);
 }

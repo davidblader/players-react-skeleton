@@ -1,21 +1,24 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
-import Login from './Login';
-import Registration from './Registration';
+import VerticalCenter from './VerticalCenter';
+import AnimalCrossingHeader from './AnimalCrossingHeader';
+import Button from './Button';
 
 const Homepage = () =>
   (
-    <div id="homepage">
-      Animal Crossing Fantasy Village
-      <Router>
-        <div>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Sign-Up</Link>
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Registration} />
-        </div>
-      </Router>
-    </div>
+    <VerticalCenter>
+      <div id="homepage">
+        <AnimalCrossingHeader>Animal Crossing Fantasy Village</AnimalCrossingHeader>
+          <div>
+            <Link to="/login">
+              <Button>Login</Button>
+            </Link>
+            <Link to="/register">
+              <Button>Move into Town!</Button>
+            </Link>
+          </div>
+      </div>
+    </VerticalCenter>
   );
 
 export default Homepage;
