@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Login extends React.Component {
   constructor(props) {
@@ -46,5 +47,9 @@ class Login extends React.Component {
     );
   }
 }
+
+Login.propTypes = {
+  setSession: PropTypes.func.isRequired,
+};
 
 export default Login;
