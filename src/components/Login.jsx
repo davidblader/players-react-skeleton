@@ -15,9 +15,14 @@ class Login extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { email, password } = this.state.loginFields;
-    console.log(email);
-    console.log(password);
+    fetch('https://players-api.developer.alchemy.codes/api/login', {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify(this.state.loginFields),
+    }).then(resp => resp.json())
+      .then((data) => {
+        this.props.setSession(data.token, data.user);
+      });
   }
 
   handleChange(e) {
