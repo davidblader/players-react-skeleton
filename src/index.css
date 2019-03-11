@@ -57,6 +57,7 @@ body {
   display: block;
   text-decoration: none;
   width: fit-content;
+  cursor: pointer;
 }
 
 #homepage {
@@ -86,3 +87,9 @@ body {
   display: flex;
   justify-content: center;
 }
+
+.error-msg {
+  color: red;
+
+}
+

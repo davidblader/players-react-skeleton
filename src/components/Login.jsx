@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
+import Button from './Button';
 
 class Login extends React.Component {
   constructor(props) {
@@ -9,9 +11,18 @@ class Login extends React.Component {
         email: '',
         password: '',
       },
+      success: null,
+      error: {},
     };
+
+    this.getUserError = this.getUserError.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+  }
+  getUserError() {
+    const userErrors = {};
+
+    return userErrors[this.state.error.message] || this.state.error.message;
   }
 
   handleSubmit(e) {
@@ -22,7 +33,12 @@ class Login extends React.Component {
       body: JSON.stringify(this.state.loginFields),
     }).then(resp => resp.json())
       .then((data) => {
-        this.props.setSession(data.token, data.user);
+        this.setState({ success: data.success });
+        if (data.success) {
+          this.props.setSession(data.token, data.user);
+        } else {
+          this.setState({ error: data.error });
+        }
       });
   }
 
@@ -33,14 +49,20 @@ class Login extends React.Component {
   }
 
   render() {
+    let errorMessage;
+    if (this.state.success === true) {
+      return <Redirect to="/roster" />;
+    } else if (this.state.success === false) {
+      errorMessage = <p className="error-msg">{this.getUserError()}</p>;
+    }
     return (
       <div id="login">
-        <h2>Login</h2>
+        {errorMessage}
         <div id="login-inputs">
           <form onSubmit={this.handleSubmit}>
             <div><input placeholder="Email" name="email" type="text" onChange={this.handleChange} /></div>
             <div><input placeholder="Password" name="password" type="password" onChange={this.handleChange} /></div>
-            <div><input type="submit" value="Login" /></div>
+            <div><Button type="submit">Login</Button></div>
           </form>
         </div>
       </div>

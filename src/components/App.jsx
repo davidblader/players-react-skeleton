@@ -4,35 +4,24 @@ import Homepage from './Homepage';
 import Login from './Login';
 import Registration from './Registration';
 import Roster from './Roster';
+import NewPlayer from './NewPlayer';
 
-// TODO: Remove text-decoration from Link Components
+const setSession = (JWT, user) => {
+  localStorage.setItem('JWT', JWT);
+  localStorage.setItem('user', user);
+};
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      JWT: '',
-      user: {},
-    };
-    this.setSession = this.setSession.bind(this);
-  }
-
-  setSession(JWT, user) {
-    this.setState({ JWT, user });
-  }
-
-  render() {
-    return (
-      <Router >
-        <Switch>
-          <Route exact path="/" component={Homepage} />
-          <Route path="/login" render={routerProps => <Login {...routerProps} setSession={this.setSession} />} />
-          <Route path="/register" render={routerProps => <Registration {...routerProps} setSession={this.setSession} />} />
-          <Route path="/roster" render={routerProps => <Roster {...routerProps} {...this.state} />} />
-        </Switch>
-      </Router>
-    );
-  }
-}
+const App = () =>
+  (
+    <Router >
+      <Switch>
+        <Route exact path="/" component={Homepage} />
+        <Route path="/login" render={routerProps => <Login {...routerProps} setSession={setSession} />} />
+        <Route path="/register" render={routerProps => <Registration {...routerProps} setSession={setSession} />} />
+        <Route path="/roster" render={routerProps => <Roster {...routerProps} />} />
+        <Route path="/player/new" component={NewPlayer} />
+      </Switch>
+    </Router>
+  );
 
 export default App;
