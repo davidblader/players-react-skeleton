@@ -10,6 +10,7 @@ body {
   background-repeat: no-repeat;
   font-family: 'Helvetica', serif;
   height: 100vh;
+  overflow: hidden;
 }
 
 #root {
@@ -17,7 +18,7 @@ body {
   height: inherit;
 }
 
-#login {
+#login-box {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -30,8 +31,8 @@ body {
   position: relative;
 }
 
-#login-input > input {
-  padding: 10px;
+#login-inputs > input {
+  margin: 10px;
 }
 
 #login-input > div {
@@ -60,7 +61,7 @@ body {
   cursor: pointer;
 }
 
-#homepage {
+.animal-crossing-box {
   background-image: url('img/wood-texture.jpg');
   display: block;
   margin: 0 auto;
@@ -68,14 +69,11 @@ body {
   text-align: center;
   padding: 10px;
   width: 40%;
-}
-
-.almost-centered {
   position: relative;
   top: 25%;
 }
 
-.link-btn > a {
+a {
   text-decoration: none;
   text-align: center;
 }
@@ -90,6 +88,8 @@ body {
 
 .error-msg {
   color: red;
-
 }
 
+.hide {
+  display: none;
+}

@@ -11,6 +11,12 @@ const setSession = (JWT, user) => {
   localStorage.setItem('user', user);
 };
 
+const logout = () => {
+  localStorage.removeItem('JWT');
+  localStorage.removeItem('user');
+  window.location.replace('/');
+};
+
 const App = () =>
   (
     <Router >
@@ -18,7 +24,7 @@ const App = () =>
         <Route exact path="/" component={Homepage} />
         <Route path="/login" render={routerProps => <Login {...routerProps} setSession={setSession} />} />
         <Route path="/register" render={routerProps => <Registration {...routerProps} setSession={setSession} />} />
-        <Route path="/roster" render={routerProps => <Roster {...routerProps} />} />
+        <Route path="/roster" render={routerProps => <Roster {...routerProps} logout={logout} />} />
         <Route path="/player/new" component={NewPlayer} />
       </Switch>
     </Router>

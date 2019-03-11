@@ -4,8 +4,19 @@ import PropTypes from 'prop-types';
 import Button from './Button';
 
 const Player = (props) => {
-  const cells = Object.keys(props).map(k => (k !== 'id' && k !== 'deletePlayer' ? <td>{props[k]}</td> : null));
-  cells.push(<td><button className="delete" onClick={() => props.deletePlayer(props.id)}>Delete</button></td>);
+  const mapCallback = k =>
+    (
+      k !== 'id' && k !== 'deletePlayer' ? <td key={k}>{props[k]}</td> : null
+    );
+  const cells = Object.keys(props).map(mapCallback);
+  const deleteFunc = () => props.deletePlayer(props.id);
+  const deleteBtn =
+    (
+      <td key="delete">
+        <button className="delete" onClick={deleteFunc}>Delete</button>
+      </td>
+    );
+  cells.push(deleteBtn);
   return (
     <tr>
       {cells}
@@ -27,6 +38,7 @@ class Roster extends React.Component {
 
     this.fetchData = this.fetchData.bind(this);
     this.deletePlayer = this.deletePlayer.bind(this);
+    this.getPlayerTable = this.getPlayerTable.bind(this);
   }
 
   componentDidMount() {
@@ -52,8 +64,15 @@ class Roster extends React.Component {
       .then(() => this.fetchData());
   }
 
+  getPlayerTable() {
+    const mapCallback = p => <Player key={p.id} {...p} deletePlayer={this.deletePlayer} />;
+    return this.state.players.map(mapCallback);
+  }
+
   render() {
-    const players = this.state.players.map(p => <Player {...p} deletePlayer={this.deletePlayer} />);
+    const players = this.state.players.length > 0
+      ? this.getPlayerTable()
+      : <div>You don't have any neighbors yet!</div>;
     return (
       <div>
         Neighborhood Roster
@@ -61,6 +80,9 @@ class Roster extends React.Component {
         <Link to="/player/new" href="/player/new">
           <Button>Add a neighbor</Button>
         </Link>
+        <div>
+          <Button onClick={this.props.logout}>Logout</Button>
+        </div>
       </div>
     );
   }

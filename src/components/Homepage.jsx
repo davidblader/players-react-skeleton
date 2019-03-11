@@ -6,19 +6,19 @@ import Button from './Button';
 
 const Homepage = () =>
   (
-    <VerticalCenter>
-      <div id="homepage">
-        <AnimalCrossingHeader>Animal Crossing Fantasy Village</AnimalCrossingHeader>
-        <div className="link-btn">
-          <Link to="/login" href="/login">
-            <Button>Login</Button>
-          </Link>
-          <Link to="/register" href="/register">
-            <Button>Register</Button>
-          </Link>
-        </div>
+    <div className="animal-crossing-box">
+      <AnimalCrossingHeader>Animal Crossing Fantasy Village</AnimalCrossingHeader>
+      <div className="link-btn">
+        <Link to="/login" href="/login">
+          <Button>Login</Button>
+        </Link>
       </div>
-    </VerticalCenter>
+      <div className="link-btn">
+        <Link to="/register" href="/register">
+          <Button>Register</Button>
+        </Link>
+      </div>
+    </div>
   );
 
 export default Homepage;
