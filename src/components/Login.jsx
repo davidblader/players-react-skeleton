@@ -50,7 +50,7 @@ class Login extends React.Component {
 
   render() {
     let errorMessage;
-    if (this.state.success === true) {
+    if (this.state.success === true || localStorage.getItem('JWT')) {
       return <Redirect to="/roster" />;
     } else if (this.state.success === false) {
       errorMessage = <p className="error-msg">{this.getUserError()}</p>;
@@ -60,9 +60,9 @@ class Login extends React.Component {
         {errorMessage}
         <div id="login-inputs">
           <form onSubmit={this.handleSubmit}>
-            <div><input placeholder="Email" name="email" type="text" onChange={this.handleChange} /></div>
-            <div><input placeholder="Password" name="password" type="password" onChange={this.handleChange} /></div>
-            <div><Button type="submit">Login</Button></div>
+            <div>Email <input id="email" name="email" type="text" onChange={this.handleChange} /></div>
+            <div>Password <input id="password" name="password" type="password" onChange={this.handleChange} /></div>
+            <div><Button id="login" type="submit">Login</Button></div>
           </form>
         </div>
       </div>

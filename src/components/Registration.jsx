@@ -60,12 +60,12 @@ class Registration extends React.Component {
           Create an Account
           {errorMessage}
           <form onSubmit={this.handleSubmit}>
-            <div><input type="text" name="first_name" placeholder="First name" onChange={this.handleChange} required /></div>
-            <div><input type="text" name="last_name" placeholder="Last name" onChange={this.handleChange} required /></div>
-            <div><input type="text" name="email" placeholder="Email" onChange={this.handleChange} required /></div>
-            <div><input type="password" name="password" placeholder="Password" onChange={this.handleChange} required /></div>
-            <div><input type="password" name="confirm_password" placeholder="Confirm password" onChange={this.handleChange} required /></div>
-            <div><input type="submit" /></div>
+            <div>First Name <input id="firstName" type="text" name="first_name" onChange={this.handleChange} required /></div>
+            <div>Last Name <input id="lastName" type="text" name="last_name" onChange={this.handleChange} required /></div>
+            <div>Email <input id="email" type="text" name="email" onChange={this.handleChange} required /></div>
+            <div>Password <input id="password" type="password" name="password" onChange={this.handleChange} required /></div>
+            <div>Confirm Password <input id="confirmPassword" type="password" name="confirm_password" onChange={this.handleChange} required /></div>
+            <div><input id="register" type="submit" value="Register" /></div>
           </form>
         </div>
       </VerticalCenter>

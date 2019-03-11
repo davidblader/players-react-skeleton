@@ -49,20 +49,17 @@ class NewPlayer extends React.Component {
       <div>
         New Villager
         <form onSubmit={this.handleSubmit}>
-          <div><input type="text" name="first_name" placeholder="First name" onChange={this.handleChange} required /></div>
-          <div><input type="text" name="last_name" placeholder="Last name" onChange={this.handleChange} required /></div>
-          <div><input type="number" name="rating" placeholder="Rating" onChange={this.handleChange} required /></div>
+          <div>First Name <input id="firstName" type="text" name="first_name" onChange={this.handleChange} required /></div>
+          <div>Last Name <input id="lastName" type="text" name="last_name" onChange={this.handleChange} required /></div>
+          <div>Rating <input id="rating" type="number" name="rating" onChange={this.handleChange} min="0" max="10000" required /></div>
           <div>
-            <label htmlFor="hand-left">
-              <input id="hand-left" type="radio" name="handedness" value="left" onChange={this.handleChange} required />
-              Left
-            </label>
-            <label htmlFor="hand-right">
-              <input id="hand-right" type="radio" name="handedness" value="right" onChange={this.handleChange} required />
-              Right
-            </label>
+            Handedness
+            <select id="handedness" name="handedness">
+              <option value="left">Left</option>
+              <option value="right">Right</option>
+            </select>
           </div>
-          <div><input type="submit" /></div>
+          <div><input id="create" type="submit" /></div>
         </form>
       </div>
     );

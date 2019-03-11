@@ -14,7 +14,7 @@ const Homepage = () =>
             <Button>Login</Button>
           </Link>
           <Link to="/register" href="/register">
-            <Button>Move into Town!</Button>
+            <Button>Register</Button>
           </Link>
         </div>
       </div>
