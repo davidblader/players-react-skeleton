@@ -5,9 +5,7 @@
 
 body {
   margin: 1em;
-  background-image: url('img/animal-crossing-background.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-image: url('img/animal-crossing-grass.jpg');
   font-family: 'Helvetica', serif;
   height: 100vh;
   overflow: hidden;
@@ -41,7 +39,7 @@ body {
 
 @font-face {
   font-family: 'Animal-Crossing';
-  src: url('fonts/Animal-Crossing-Wild-World.ttf');
+  src: url('fonts/SoftCompound.ttf');
 }
 
 .animal-crossing-header {

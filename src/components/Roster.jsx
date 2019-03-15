@@ -2,14 +2,42 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Button from './Button';
+import AnimalCrossingHeader from './AnimalCrossingHeader';
 
-const Player = (props) => {
-  const mapCallback = k =>
-    (
-      k !== 'id' && k !== 'deletePlayer' ? <td key={k}>{props[k]}</td> : null
-    );
-  const cells = Object.keys(props).map(mapCallback);
-  const deleteFunc = () => props.deletePlayer(props.id);
+const NoPlayers = () =>
+  (
+    <AnimalCrossingHeader>You don't have any neighbors yet!</AnimalCrossingHeader>
+  );
+
+const PlayersTable = ({ players, deletePlayer }) => {
+  // create a headers array to ensure proper order of fields
+  const headersArr = ['first_name', 'last_name', 'rating', 'handedness'];
+  const headers = headersArr.map(h => (
+    <th>
+      {h.replace(/(^|_)(\w)/g, ($0, $1, $2) => ($1 && ' ') + $2.toUpperCase())}
+    </th>
+  ));
+  const playerRows = players.map(p => (
+    <Player player={p} headers={headersArr} deletePlayer={deletePlayer} />
+  ));
+  return (
+    <table>
+      {headers}
+      <tbody>
+        {playerRows}
+      </tbody>
+    </table>
+  );
+};
+
+PlayersTable.propTypes = {
+  players: PropTypes.arrayOf(PropTypes.object).isRequired,
+  deletePlayer: PropTypes.func.isRequired,
+};
+
+const Player = ({ player, headers, deletePlayer }) => {
+  const cells = headers.map(h => <td key={h}>{player[h]}</td>);
+  const deleteFunc = () => deletePlayer(player.id);
   const deleteBtn =
     (
       <td key="delete">
@@ -25,7 +53,14 @@ const Player = (props) => {
 };
 
 Player.propTypes = {
-  id: PropTypes.string.isRequired,
+  player: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    first_name: PropTypes.string.isRequired,
+    last_name: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    handedness: PropTypes.oneOf(['left', 'right']).isRequired,
+  }).isRequired,
+  headers: PropTypes.arrayOf(PropTypes.string).isRequired,
   deletePlayer: PropTypes.func.isRequired,
 };
 
@@ -38,7 +73,6 @@ class Roster extends React.Component {
 
     this.fetchData = this.fetchData.bind(this);
     this.deletePlayer = this.deletePlayer.bind(this);
-    this.getPlayerTable = this.getPlayerTable.bind(this);
   }
 
   componentDidMount() {
@@ -64,18 +98,13 @@ class Roster extends React.Component {
       .then(() => this.fetchData());
   }
 
-  getPlayerTable() {
-    const mapCallback = p => <Player key={p.id} {...p} deletePlayer={this.deletePlayer} />;
-    return this.state.players.map(mapCallback);
-  }
-
   render() {
     const players = this.state.players.length > 0
-      ? this.getPlayerTable()
-      : <div>You don't have any neighbors yet!</div>;
+      ? <PlayersTable players={this.state.players} deletePlayer={this.deletePlayer} />
+      : <NoPlayers />;
     return (
-      <div>
-        Neighborhood Roster
+      <div className="animal-crossing-box">
+        <AnimalCrossingHeader>Neighborhood Roster</AnimalCrossingHeader>
         {players}
         <Link to="/player/new" href="/player/new">
           <Button>Add a neighbor</Button>
@@ -88,5 +117,8 @@ class Roster extends React.Component {
   }
 }
 
+Roster.propTypes = {
+  logout: PropTypes.func.isRequired,
+};
 
 export default Roster;
