@@ -70,7 +70,7 @@ class Login extends React.Component {
               <span className="hide">Password</span>
               <input id="password" placeholder="Password" name="password" type="password" onChange={this.handleChange} required />
             </div>
-            <div className="link-btn">
+            <div className="btn-container">
               <Button id="login" type="submit">Login</Button>
             </div>
           </form>
