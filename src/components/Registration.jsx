@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import VerticalCenter from './VerticalCenter';
+import AnimalCrossingHeader from './AnimalCrossingHeader';
 
 class Registration extends React.Component {
   constructor(props) {
@@ -55,20 +56,35 @@ class Registration extends React.Component {
       errorMessage = <p className="error-msg">{this.getUserError()}</p>;
     }
     return (
-      <VerticalCenter>
-        <div id="registration">
-          Create an Account
-          {errorMessage}
-          <form onSubmit={this.handleSubmit}>
-            <div>First Name <input id="firstName" type="text" name="first_name" onChange={this.handleChange} required /></div>
-            <div>Last Name <input id="lastName" type="text" name="last_name" onChange={this.handleChange} required /></div>
-            <div>Email <input id="email" type="text" name="email" onChange={this.handleChange} required /></div>
-            <div>Password <input id="password" type="password" name="password" onChange={this.handleChange} required /></div>
-            <div>Confirm Password <input id="confirmPassword" type="password" name="confirm_password" onChange={this.handleChange} required /></div>
-            <div><input id="register" type="submit" value="Register" /></div>
-          </form>
-        </div>
-      </VerticalCenter>
+      <div id="registration" className="animal-crossing-box">
+        <AnimalCrossingHeader>Create an Account</AnimalCrossingHeader>
+        {errorMessage}
+        <form onSubmit={this.handleSubmit}>
+          <div>
+            <span className="hide">First Name</span>
+            <input id="firstName" type="text" name="first_name" placeholder="First Name" onChange={this.handleChange} required />
+          </div>
+          <div>
+            <span className="hide">Last Name</span>
+            <input id="lastName" type="text" name="last_name" placeholder="Last Name" onChange={this.handleChange} required />
+          </div>
+          <div>
+            <span className="hide">Email</span>
+            <input id="email" type="text" name="email" placeholder="Email" onChange={this.handleChange} required />
+          </div>
+          <div>
+            <span className="hide">Password</span>
+            <input id="password" type="password" name="password" placeholder="Password" onChange={this.handleChange} required />
+          </div>
+          <div>
+            <span className="hide">Confirm Password</span>
+            <input id="confirmPassword" type="password" name="confirm_password" placeholder="Confirm Password" onChange={this.handleChange} required />
+          </div>
+          <div className="btn-container">
+            <input id="register" className="animal-crossing-btn" type="submit" value="Register" />
+          </div>
+        </form>
+      </div>
     );
   }
 }

@@ -45,7 +45,7 @@ body {
 .animal-crossing-header {
   font-family: 'Animal-Crossing', serif;
   color: gold;
-  font-size: 400%;
+  font-size: 300%;
 }
 
 .animal-crossing-btn {
@@ -57,6 +57,7 @@ body {
   text-decoration: none;
   width: fit-content;
   cursor: pointer;
+  padding: 10px;
 }
 
 .animal-crossing-box {
@@ -76,7 +77,7 @@ a {
   text-align: center;
 }
 
-.link-btn {
+.btn-container {
   padding-top: 10px;
   margin: 0 auto;
   text-align: center;
