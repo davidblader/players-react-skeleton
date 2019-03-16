@@ -16,27 +16,6 @@ body {
   height: inherit;
 }
 
-#login-box {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: fit-content;
-  text-align: center;
-  background-color: rgba(200, 256, 200, 0.5);
-  padding: 10px;
-  border-radius: 12px;
-  top: 25%;
-  position: relative;
-}
-
-#login-inputs > input {
-  margin: 10px;
-}
-
-#login-input > div {
-  padding: 3px;
-}
-
 @font-face {
   font-family: 'Animal-Crossing';
   src: url('fonts/SoftCompound.ttf');
@@ -46,12 +25,20 @@ body {
   font-family: 'Animal-Crossing', serif;
   color: gold;
   font-size: 300%;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.animal-crossing-font {
+  font-family: 'Animal-Crossing', serif;
+  color: gold;
 }
 
 .animal-crossing-btn {
+  font-family: 'Animal-Crossing', serif;
   text-align: center;
   color: white;
-  background-color: #55FF55;
+  background-color: #5555FF;
   border-radius: 15px;
   display: block;
   text-decoration: none;
@@ -67,7 +54,7 @@ body {
   border-radius: 12px;
   text-align: center;
   padding: 10px;
-  width: 40%;
+  width: 50%;
   position: relative;
   top: 25%;
 }
@@ -91,4 +78,11 @@ a {
 
 .hide {
   display: none;
+}
+
+.player-roster {
+  background-color: #F9E4B7;
+  border-radius: 12px;
+  margin: 0 auto;
+  padding: 5px;
 }

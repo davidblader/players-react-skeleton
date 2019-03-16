@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import VerticalCenter from './VerticalCenter';
 import AnimalCrossingHeader from './AnimalCrossingHeader';
 
 class Registration extends React.Component {

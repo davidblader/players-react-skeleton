@@ -30,7 +30,7 @@ class Login extends React.Component {
     e.preventDefault();
     fetch('https://players-api.developer.alchemy.codes/api/login', {
       method: 'POST',
-      headers: { 'Content-type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(this.state.loginFields),
     }).then(resp => resp.json())
       .then((data) => {

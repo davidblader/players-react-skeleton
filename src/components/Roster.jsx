@@ -6,7 +6,7 @@ import AnimalCrossingHeader from './AnimalCrossingHeader';
 
 const NoPlayers = () =>
   (
-    <AnimalCrossingHeader>You don't have any neighbors yet!</AnimalCrossingHeader>
+    <p className="animal-crossing-font">You don't have any neighbors yet!</p>
   );
 
 const PlayersTable = ({ players, deletePlayer }) => {
@@ -21,7 +21,7 @@ const PlayersTable = ({ players, deletePlayer }) => {
     <Player player={p} headers={headersArr} deletePlayer={deletePlayer} />
   ));
   return (
-    <table>
+    <table className="player-roster">
       {headers}
       <tbody>
         {playerRows}
@@ -106,10 +106,12 @@ class Roster extends React.Component {
       <div className="animal-crossing-box">
         <AnimalCrossingHeader>Neighborhood Roster</AnimalCrossingHeader>
         {players}
-        <Link to="/player/new" href="/player/new">
-          <Button>Add a neighbor</Button>
-        </Link>
-        <div>
+        <div className="btn-container">
+          <Link to="/player/new" href="/player/new">
+            <Button>Add a neighbor</Button>
+          </Link>
+        </div>
+        <div className="btn-container">
           <Button onClick={this.props.logout}>Logout</Button>
         </div>
       </div>
