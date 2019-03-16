@@ -1,7 +1,7 @@
 import React from 'react';
 import AnimalCrossingHeader from './AnimalCrossingHeader';
 
-class NewPlayerFromAPI extends React.Component {
+class NewVillager extends React.Component {
   constructor(props) {
     super(props);
     this.getData = this.getData.bind(this);
@@ -16,7 +16,7 @@ class NewPlayerFromAPI extends React.Component {
     };
     fetch(url, options)
       .then(resp => resp.json())
-      .then((data) => { console.log(data) });
+      .then((data) => { console.log(data); });
   }
 
   componentDidMount() {
@@ -32,4 +32,4 @@ class NewPlayerFromAPI extends React.Component {
   }
 }
 
-export default NewPlayerFromAPI;
+export default NewVillager;

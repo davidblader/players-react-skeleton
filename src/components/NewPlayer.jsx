@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import AnimalCrossingHeader from './AnimalCrossingHeader';
 
 class NewPlayer extends React.Component {
   constructor(props) {
@@ -9,9 +10,16 @@ class NewPlayer extends React.Component {
       error: {},
       success: null,
     };
-
+    this.getUserError = this.getUserError.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  getUserError() {
+    const userErrors = {
+      'Resource already exists.': 'This neighbor already exists!',
+    };
+    return userErrors[this.state.error.message] || this.state.error.message;
   }
 
   handleSubmit(e) {
@@ -28,10 +36,11 @@ class NewPlayer extends React.Component {
       },
     ).then(resp => resp.json())
       .then((data) => {
-        this.setState({ success: data.success });
         if (data.success === false) {
+          console.log(data.error);
           this.setState({ error: data.error });
         }
+        this.setState({ success: data.success });
       });
   }
 
@@ -42,24 +51,40 @@ class NewPlayer extends React.Component {
   }
 
   render() {
+    let errorMessage;
     if (this.state.success === true) {
       return <Redirect to="/roster" />;
+    } else if (this.state.success === false) {
+      errorMessage = <p className="error-msg">{this.getUserError()}</p>;
     }
     return (
-      <div>
-        New Villager
+      <div className="animal-crossing-box">
+        <AnimalCrossingHeader>New Villager</AnimalCrossingHeader>
+        {errorMessage}
         <form onSubmit={this.handleSubmit}>
-          <div>First Name <input id="firstName" type="text" name="first_name" onChange={this.handleChange} required /></div>
-          <div>Last Name <input id="lastName" type="text" name="last_name" onChange={this.handleChange} required /></div>
-          <div>Rating <input id="rating" type="number" name="rating" onChange={this.handleChange} min="0" max="10000" required /></div>
           <div>
-            Handedness
-            <select id="handedness" name="handedness">
+            <span className="hide">First Name</span>
+            <input id="firstName" type="text" placeholder="First Name" name="first_name" onChange={this.handleChange} required />
+          </div>
+          <div>
+            <span className="hide">Last Name</span>
+            <input id="lastName" type="text" placeholder="Last Name" name="last_name" onChange={this.handleChange} required />
+          </div>
+          <div>
+            <span className="hide">Rating</span>
+            <input id="rating" type="number" placeholder="Rating" name="rating" onChange={this.handleChange} min="0" max="10000" required />
+          </div>
+          <div>
+            <span className="hide">Handedness</span>
+            <select id="handedness" name="handedness" onChange={this.handleChange}>
+              <option value="">Handedness</option>
               <option value="left">Left</option>
               <option value="right">Right</option>
             </select>
           </div>
-          <div><input id="create" type="submit" /></div>
+          <div className="btn-container">
+            <input id="create" className="animal-crossing-btn" type="submit" />
+          </div>
         </form>
       </div>
     );

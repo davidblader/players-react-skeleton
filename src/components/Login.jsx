@@ -22,7 +22,6 @@ class Login extends React.Component {
   }
   getUserError() {
     const userErrors = {};
-
     return userErrors[this.state.error.message] || this.state.error.message;
   }
 

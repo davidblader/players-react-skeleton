@@ -53,8 +53,9 @@ body {
   margin: 0 auto;
   border-radius: 12px;
   text-align: center;
-  padding: 10px;
-  width: 50%;
+  padding: 5px;
+  width: 60%;
+  min-width: fit-content;
   position: relative;
   top: 25%;
 }
@@ -62,6 +63,10 @@ body {
 a {
   text-decoration: none;
   text-align: center;
+}
+
+input {
+  margin-top: 5px;
 }
 
 .btn-container {
@@ -85,4 +90,6 @@ a {
   border-radius: 12px;
   margin: 0 auto;
   padding: 5px;
+  display: block;
+  overflow: auto;
 }
