@@ -13,7 +13,7 @@ const PlayersTable = ({ players, deletePlayer }) => {
   // create a headers array to ensure proper order of fields
   const headersArr = ['first_name', 'last_name', 'rating', 'handedness'];
   const headers = headersArr.map(h => (
-    <th>
+    <th className="player-roster-cell">
       {h.replace(/(^|_)(\w)/g, ($0, $1, $2) => ($1 && ' ') + $2.toUpperCase())}
     </th>
   ));
@@ -36,12 +36,12 @@ PlayersTable.propTypes = {
 };
 
 const Player = ({ player, headers, deletePlayer }) => {
-  const cells = headers.map(h => <td key={h}>{player[h]}</td>);
+  const cells = headers.map(h => <td className="player-roster-cell" key={h}>{player[h]}</td>);
   const deleteFunc = () => deletePlayer(player.id);
   const deleteBtn =
     (
       <td key="delete">
-        <button className="delete" onClick={deleteFunc}>Delete</button>
+        <button className="delete" onClick={deleteFunc}>×</button>
       </td>
     );
   cells.push(deleteBtn);

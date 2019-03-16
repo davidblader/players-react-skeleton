@@ -3,24 +3,6 @@
   Or use Less or whatever form of styling brings you the most Joy. Bonus points for following a CSS methodology. (BEM, OOCSS, ETC)
 */
 
-body {
-  margin: 1em;
-  background-image: url('img/animal-crossing-grass.jpg');
-  font-family: 'Helvetica', serif;
-  height: 100vh;
-  overflow: hidden;
-}
-
-#root {
-  width: inherit;
-  height: inherit;
-}
-
-@font-face {
-  font-family: 'Animal-Crossing';
-  src: url('fonts/SoftCompound.ttf');
-}
-
 .animal-crossing-header {
   font-family: 'Animal-Crossing', serif;
   color: gold;
@@ -60,21 +42,19 @@ body {
   top: 25%;
 }
 
-a {
-  text-decoration: none;
-  text-align: center;
-}
-
-input {
-  margin-top: 5px;
-}
-
 .btn-container {
   padding-top: 10px;
   margin: 0 auto;
   text-align: center;
   display: flex;
   justify-content: center;
+}
+
+.delete {
+  background-color: red;
+  color: white;
+  border-radius: 15px;
+  cursor: pointer;
 }
 
 .error-msg {
@@ -92,4 +72,38 @@ input {
   padding: 5px;
   display: block;
   overflow: auto;
+  width: fit-content;
 }
+
+.player-roster-cell {
+  padding: 5px;
+}
+
+body {
+  margin: 1em;
+  background-image: url('img/animal-crossing-grass.jpg');
+  font-family: 'Helvetica', serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#root {
+  width: inherit;
+  height: inherit;
+}
+
+@font-face {
+  font-family: 'Animal-Crossing';
+  src: url('fonts/SoftCompound.ttf');
+}
+
+
+a {
+  text-decoration: none;
+  text-align: center;
+}
+
+input {
+  margin-top: 5px;
+}
+
