@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Transition, CSSTransition } from 'react-transition-group';
 import Homepage from './Homepage';
 import Login from './Login';
 import Registration from './Registration';
@@ -7,12 +8,12 @@ import Roster from './Roster';
 import NewPlayer from './NewPlayer';
 import NewVillager from './NewVillager';
 
-const setSession = (JWT, user) => {
+export const setSession = (JWT, user) => {
   localStorage.setItem('JWT', JWT);
-  localStorage.setItem('user', user);
+  localStorage.setItem('user', JSON.stringify(user));
 };
 
-const logout = () => {
+export const logout = () => {
   localStorage.removeItem('JWT');
   localStorage.removeItem('user');
   window.location.replace('/');
