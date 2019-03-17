@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`initial test 1`] = `
+<div
+  className="animal-crossing-box"
+>
+  <span
+    className="animal-crossing-header"
+  >
+    Animal Crossing Fantasy Village
+  </span>
+  <div
+    className="btn-container"
+  >
+    <a
+      href="/login"
+      onClick={[Function]}
+    >
+      <button
+        className="animal-crossing-btn"
+      >
+        Login
+      </button>
+    </a>
+  </div>
+  <div
+    className="btn-container"
+  >
+    <a
+      href="/register"
+      onClick={[Function]}
+    >
+      <button
+        className="animal-crossing-btn"
+      >
+        Register
+      </button>
+    </a>
+  </div>
+</div>
+`;

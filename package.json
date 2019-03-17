@@ -7,13 +7,21 @@
     "build": "cross-env NODE_ENV=production parcel build index.html --public-url",
     "e2e": "cypress open",
     "lint:js": "eslint src/**/**/*.js src/**/**/*.jsx tests/**/**/*.js",
-    "lint:style": "stylelint src/**/**/*.css src/**/**/*.scss"
+    "lint:style": "stylelint src/**/**/*.css src/**/**/*.scss",
+    "test": "jest"
+  },
+  "jest": {
+    "verbose": true,
+    "roots": [
+      "./tests/unit/"
+    ]
   },
   "dependencies": {
+    "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
-    "babel-jest": "^24.5.0",
-    "babel-preset-react-app": "^3.1.1",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.4.2",
     "cross-env": "^5.2.0",
     "cypress": "^3.1.5",
     "jest": "^24.5.0",
@@ -28,7 +36,8 @@
     "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
+    "@babel/core": "^7.3.4",
+    "babel-preset-react-app": "^3.1.2",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.12.0",
