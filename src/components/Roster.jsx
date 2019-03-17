@@ -73,7 +73,7 @@ Player.propTypes = {
 };
 
 const WelcomeMessage = () => {
-  const user = JSON.parse(sessionStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem('user'));
   let toReturn;
   // don't crash the page if user is not defined
   if (user && user.first_name && user.last_name) {
@@ -101,7 +101,7 @@ class Roster extends React.Component {
 
   fetchData() {
     fetch('https://players-api.developer.alchemy.codes/api/players', {
-      headers: { Authorization: `Bearer ${sessionStorage.getItem('JWT')}` },
+      headers: { Authorization: `Bearer ${localStorage.getItem('JWT')}` },
     }).then(resp => resp.json())
       .then((data) => {
         if (data.success) {
@@ -113,7 +113,7 @@ class Roster extends React.Component {
   deletePlayer(id) {
     fetch(`https://players-api.developer.alchemy.codes/api/players/${id}`, {
       method: 'DELETE',
-      headers: { Authorization: `Bearer ${sessionStorage.getItem('JWT')}` },
+      headers: { Authorization: `Bearer ${localStorage.getItem('JWT')}` },
     }).then(resp => resp.json())
       .then(() => this.fetchData());
   }

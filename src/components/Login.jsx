@@ -56,7 +56,7 @@ class Login extends React.Component {
     let errorMessage;
     // Redirect to roster if login was successful,
     // or user has active session (JWT is set)
-    if (this.state.success === true || sessionStorage.getItem('JWT')) {
+    if (this.state.success === true || localStorage.getItem('JWT')) {
       return <Redirect to="/roster" />;
     } else if (this.state.success === false) {
       errorMessage = <p className="error-msg">{this.getUserError()}</p>;

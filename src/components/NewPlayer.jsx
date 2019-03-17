@@ -31,7 +31,7 @@ class NewPlayer extends React.Component {
       {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${sessionStorage.getItem('JWT')}`,
+          Authorization: `Bearer ${localStorage.getItem('JWT')}`,
           'Content-type': 'application/json',
         },
         body: JSON.stringify(this.state.newPlayer),

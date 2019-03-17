@@ -8,13 +8,13 @@ import NewPlayer from './NewPlayer';
 import NewVillager from './NewVillager';
 
 export const setSession = (JWT, user) => {
-  sessionStorage.setItem('JWT', JWT);
-  sessionStorage.setItem('user', JSON.stringify(user));
+  localStorage.setItem('JWT', JWT);
+  localStorage.setItem('user', JSON.stringify(user));
 };
 
 export const logout = () => {
-  sessionStorage.removeItem('JWT');
-  sessionStorage.removeItem('user');
+  localStorage.removeItem('JWT');
+  localStorage.removeItem('user');
   window.location.replace('/');
 };
 
