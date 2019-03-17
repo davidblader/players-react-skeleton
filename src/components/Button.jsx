@@ -4,12 +4,7 @@ import PropTypes from 'prop-types';
 const Button = props => (<button {...props} className="animal-crossing-btn">{props.children}</button>);
 
 Button.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };
-
-Button.defaultProps = {
-  children: [],
-};
-
 
 export default Button;

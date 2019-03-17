@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import AnimalCrossingHeader from './AnimalCrossingHeader';
+import AnimalCrossingContainer from './AnimalCrossingContainer';
 
 class NewPlayer extends React.Component {
   constructor(props) {
@@ -58,7 +59,7 @@ class NewPlayer extends React.Component {
       errorMessage = <p className="error-msg">{this.getUserError()}</p>;
     }
     return (
-      <div className="animal-crossing-box">
+      <AnimalCrossingContainer>
         <AnimalCrossingHeader>New Villager</AnimalCrossingHeader>
         {errorMessage}
         <form onSubmit={this.handleSubmit}>
@@ -86,7 +87,7 @@ class NewPlayer extends React.Component {
             <input id="create" className="animal-crossing-btn" type="submit" />
           </div>
         </form>
-      </div>
+      </AnimalCrossingContainer>
     );
   }
 }

@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AnimalCrossingHeader from './AnimalCrossingHeader';
 import Button from './Button';
+import AnimalCrossingContainer from './AnimalCrossingContainer';
 
 const Homepage = () =>
   (
-    <div className="animal-crossing-box">
+    <AnimalCrossingContainer>
       <AnimalCrossingHeader>Animal Crossing Fantasy Village</AnimalCrossingHeader>
       <div className="btn-container">
         <Link to="/login" href="/login">
@@ -17,7 +18,7 @@ const Homepage = () =>
           <Button>Register</Button>
         </Link>
       </div>
-    </div>
+    </AnimalCrossingContainer>
   );
 
 export default Homepage;

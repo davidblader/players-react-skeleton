@@ -29,7 +29,7 @@
   padding: 10px;
 }
 
-.animal-crossing-box {
+.animal-crossing-container {
   background-image: url('img/wood-texture.jpg');
   display: block;
   margin: 0 auto;
@@ -84,7 +84,7 @@ body {
   background-image: url('img/animal-crossing-grass.jpg');
   font-family: 'Helvetica', serif;
   height: 100vh;
-  overflow: hidden;
+  min-height: fit-content;
 }
 
 #root {
@@ -97,7 +97,6 @@ body {
   src: url('fonts/SoftCompound.ttf');
 }
 
-
 a {
   text-decoration: none;
   text-align: center;
@@ -106,4 +105,3 @@ a {
 input {
   margin-top: 5px;
 }
-

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import AnimalCrossingHeader from './AnimalCrossingHeader';
+import AnimalCrossingContainer from './AnimalCrossingContainer';
 
 class Registration extends React.Component {
   constructor(props) {
@@ -55,7 +56,7 @@ class Registration extends React.Component {
       errorMessage = <p className="error-msg">{this.getUserError()}</p>;
     }
     return (
-      <div id="registration" className="animal-crossing-box">
+      <AnimalCrossingContainer id="registration">
         <AnimalCrossingHeader>Create an Account</AnimalCrossingHeader>
         {errorMessage}
         <form onSubmit={this.handleSubmit}>
@@ -83,7 +84,7 @@ class Registration extends React.Component {
             <input id="register" className="animal-crossing-btn" type="submit" value="Register" />
           </div>
         </form>
-      </div>
+      </AnimalCrossingContainer>
     );
   }
 }

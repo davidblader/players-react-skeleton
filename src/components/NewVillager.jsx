@@ -1,5 +1,6 @@
 import React from 'react';
 import AnimalCrossingHeader from './AnimalCrossingHeader';
+import AnimalCrossingContainer from './AnimalCrossingContainer';
 
 class NewVillager extends React.Component {
   constructor(props) {
@@ -25,9 +26,9 @@ class NewVillager extends React.Component {
 
   render() {
     return (
-      <div className="animal-crossing-box">
+      <AnimalCrossingContainer>
         <AnimalCrossingHeader>Work in Progress</AnimalCrossingHeader>
-      </div>
+      </AnimalCrossingContainer>
     );
   }
 }

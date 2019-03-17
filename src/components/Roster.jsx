@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Button from './Button';
 import AnimalCrossingHeader from './AnimalCrossingHeader';
+import AnimalCrossingContainer from './AnimalCrossingContainer';
 
 const NoPlayers = () =>
   (
@@ -114,7 +115,7 @@ class Roster extends React.Component {
       ? <PlayersTable players={this.state.players} deletePlayer={this.deletePlayer} />
       : <NoPlayers />;
     return (
-      <div className="animal-crossing-box">
+      <AnimalCrossingContainer id="roster">
         <AnimalCrossingHeader>Neighborhood Roster</AnimalCrossingHeader>
         <WelcomeMessage />
         {players}
@@ -126,7 +127,7 @@ class Roster extends React.Component {
         <div className="btn-container">
           <Button onClick={this.props.logout}>Logout</Button>
         </div>
-      </div>
+      </AnimalCrossingContainer>
     );
   }
 }

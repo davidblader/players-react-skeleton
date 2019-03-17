@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import Button from './Button';
 import AnimalCrossingHeader from './AnimalCrossingHeader';
+import { setSession } from './Login';
+import AnimalCrossingContainer from './AnimalCrossingContainer';
 
 class Login extends React.Component {
   constructor(props) {
@@ -59,7 +61,7 @@ class Login extends React.Component {
       errorMessage = <p className="error-msg">{this.getUserError()}</p>;
     }
     return (
-      <div className="animal-crossing-box">
+      <AnimalCrossingContainer>
         <AnimalCrossingHeader>Login</AnimalCrossingHeader>
         {errorMessage}
         <div id="login-inputs">
@@ -77,13 +79,17 @@ class Login extends React.Component {
             </div>
           </form>
         </div>
-      </div>
+      </AnimalCrossingContainer>
     );
   }
 }
 
 Login.propTypes = {
-  setSession: PropTypes.func.isRequired,
+  setSession: PropTypes.func,
+};
+
+Login.defaultProps = {
+  setSession,
 };
 
 export default Login;
