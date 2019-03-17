@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Transition, CSSTransition } from 'react-transition-group';
 import Homepage from './Homepage';
 import Login from './Login';
 import Registration from './Registration';
@@ -9,19 +8,19 @@ import NewPlayer from './NewPlayer';
 import NewVillager from './NewVillager';
 
 export const setSession = (JWT, user) => {
-  localStorage.setItem('JWT', JWT);
-  localStorage.setItem('user', JSON.stringify(user));
+  sessionStorage.setItem('JWT', JWT);
+  sessionStorage.setItem('user', JSON.stringify(user));
 };
 
 export const logout = () => {
-  localStorage.removeItem('JWT');
-  localStorage.removeItem('user');
+  sessionStorage.removeItem('JWT');
+  sessionStorage.removeItem('user');
   window.location.replace('/');
 };
 
 const App = () =>
   (
-    <Router >
+    <Router>
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route path="/login" render={routerProps => <Login {...routerProps} setSession={setSession} />} />

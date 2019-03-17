@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import AnimalCrossingHeader from './AnimalCrossingHeader';
 import AnimalCrossingContainer from './AnimalCrossingContainer';
+import Image from './Image';
 
 class NewPlayer extends React.Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class NewPlayer extends React.Component {
       {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('JWT')}`,
+          Authorization: `Bearer ${sessionStorage.getItem('JWT')}`,
           'Content-type': 'application/json',
         },
         body: JSON.stringify(this.state.newPlayer),
@@ -61,6 +62,7 @@ class NewPlayer extends React.Component {
     return (
       <AnimalCrossingContainer>
         <AnimalCrossingHeader>New Villager</AnimalCrossingHeader>
+        <Image src="rover" />
         {errorMessage}
         <form onSubmit={this.handleSubmit}>
           <div>
@@ -78,7 +80,7 @@ class NewPlayer extends React.Component {
           <div>
             <span className="hide">Handedness</span>
             <select id="handedness" name="handedness" onChange={this.handleChange}>
-              <option value="">Handedness</option>
+              <option value={null}>Handedness</option>
               <option value="left">Left</option>
               <option value="right">Right</option>
             </select>

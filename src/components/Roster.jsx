@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import Button from './Button';
 import AnimalCrossingHeader from './AnimalCrossingHeader';
 import AnimalCrossingContainer from './AnimalCrossingContainer';
+import Loading from './Loading';
 
 const NoPlayers = () =>
   (
-    <p className="animal-crossing-font">You don't have any neighbors yet!</p>
+    <p className="animal-crossing-font">You don&#39;t have any neighbors yet!</p>
   );
 
 const PlayersTable = ({ players, deletePlayer }) => {
@@ -15,6 +16,8 @@ const PlayersTable = ({ players, deletePlayer }) => {
   const headersArr = ['first_name', 'last_name', 'rating', 'handedness'];
   const headers = headersArr.map(h => (
     <th key={h} className="player-roster-cell">
+      {/* below regex replaces underscores with spaces
+      & capitalizes the first letter of each word */}
       {h.replace(/(^|_)(\w)/g, ($0, $1, $2) => ($1 && ' ') + $2.toUpperCase())}
     </th>
   ));
@@ -70,10 +73,14 @@ Player.propTypes = {
 };
 
 const WelcomeMessage = () => {
-  const user = JSON.parse(localStorage.getItem('user'));
-  const name = `${user.first_name} ${user.last_name}`;
-
-  return <h2 className="animal-crossing-font">Welcome {name}!</h2>;
+  const user = JSON.parse(sessionStorage.getItem('user'));
+  let toReturn;
+  // don't crash the page if user is not defined
+  if (user && user.first_name && user.last_name) {
+    const name = `${user.first_name} ${user.last_name}`;
+    toReturn = <h2 className="animal-crossing-font">Welcome {name}!</h2>;
+  }
+  return toReturn;
 };
 
 class Roster extends React.Component {
@@ -81,6 +88,7 @@ class Roster extends React.Component {
     super(props);
     this.state = {
       players: [],
+      loaded: false,
     };
 
     this.fetchData = this.fetchData.bind(this);
@@ -93,11 +101,11 @@ class Roster extends React.Component {
 
   fetchData() {
     fetch('https://players-api.developer.alchemy.codes/api/players', {
-      headers: { Authorization: `Bearer ${localStorage.getItem('JWT')}` },
+      headers: { Authorization: `Bearer ${sessionStorage.getItem('JWT')}` },
     }).then(resp => resp.json())
       .then((data) => {
         if (data.success) {
-          this.setState({ players: data.players });
+          this.setState({ players: data.players, loaded: true});
         }
       });
   }
@@ -105,12 +113,16 @@ class Roster extends React.Component {
   deletePlayer(id) {
     fetch(`https://players-api.developer.alchemy.codes/api/players/${id}`, {
       method: 'DELETE',
-      headers: { Authorization: `Bearer ${localStorage.getItem('JWT')}` },
+      headers: { Authorization: `Bearer ${sessionStorage.getItem('JWT')}` },
     }).then(resp => resp.json())
       .then(() => this.fetchData());
   }
 
   render() {
+    if (!this.state.loaded) {
+      return <Loading />;
+    }
+
     const players = this.state.players.length > 0
       ? <PlayersTable players={this.state.players} deletePlayer={this.deletePlayer} />
       : <NoPlayers />;

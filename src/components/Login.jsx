@@ -5,6 +5,7 @@ import Button from './Button';
 import AnimalCrossingHeader from './AnimalCrossingHeader';
 import { setSession } from './Login';
 import AnimalCrossingContainer from './AnimalCrossingContainer';
+import Image from './Image';
 
 class Login extends React.Component {
   constructor(props) {
@@ -55,7 +56,7 @@ class Login extends React.Component {
     let errorMessage;
     // Redirect to roster if login was successful,
     // or user has active session (JWT is set)
-    if (this.state.success === true || localStorage.getItem('JWT')) {
+    if (this.state.success === true || sessionStorage.getItem('JWT')) {
       return <Redirect to="/roster" />;
     } else if (this.state.success === false) {
       errorMessage = <p className="error-msg">{this.getUserError()}</p>;
@@ -63,6 +64,7 @@ class Login extends React.Component {
     return (
       <AnimalCrossingContainer>
         <AnimalCrossingHeader>Login</AnimalCrossingHeader>
+        <Image src="isabelle" />
         {errorMessage}
         <div id="login-inputs">
           <form onSubmit={this.handleSubmit}>

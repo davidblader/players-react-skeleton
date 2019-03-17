@@ -3,19 +3,6 @@
   Or use Less or whatever form of styling brings you the most Joy. Bonus points for following a CSS methodology. (BEM, OOCSS, ETC)
 */
 
-.animal-crossing-header {
-  font-family: 'Animal-Crossing', serif;
-  color: gold;
-  font-size: 300%;
-  overflow-wrap: break-word;
-  hyphens: auto;
-}
-
-.animal-crossing-font {
-  font-family: 'Animal-Crossing', serif;
-  color: gold;
-}
-
 .animal-crossing-btn {
   font-family: 'Animal-Crossing', serif;
   text-align: center;
@@ -36,10 +23,33 @@
   border-radius: 12px;
   text-align: center;
   padding: 5px;
-  width: 60%;
+  width: 40%;
   min-width: fit-content;
   position: relative;
   top: 25%;
+}
+
+.animal-crossing-font {
+  font-family: 'Animal-Crossing', serif;
+  color: gold;
+}
+
+.animal-crossing-header {
+  font-family: 'Animal-Crossing', serif;
+  color: gold;
+  font-size: 300%;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  display: block;
+}
+
+.animal-crossing-img {
+  display: flex;
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .btn-container {
@@ -58,11 +68,25 @@
 }
 
 .error-msg {
-  color: red;
+  color: white;
+  background-color: red;
+  font-family: 'Animal-Crossing', serif;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.gyroid {
+  background-image: url('img/Gyroid.png');
 }
 
 .hide {
   display: none;
+}
+
+.isabelle {
+  background-image: url('img/Isabelle.png');
 }
 
 .player-roster {
@@ -79,12 +103,22 @@
   padding: 5px;
 }
 
-body {
-  margin: 1em;
-  background-image: url('img/animal-crossing-grass.jpg');
-  font-family: 'Helvetica', serif;
-  height: 100vh;
-  min-height: fit-content;
+.rover {
+  background-image: url('img/Rover.png');
+
+  /* Rover's image is skinnier than the others,
+  so 200px width makes him a bit off center. Overriding it to 100px seems to
+   do the trick */
+
+  width: 100px;
+}
+
+.tomnook {
+  background-image: url('img/TomNook.png');
+}
+
+.villager {
+  background-image: url('img/Villager.png');
 }
 
 #root {
@@ -102,6 +136,17 @@ a {
   text-align: center;
 }
 
-input {
+body {
+  margin: 1em;
+  background-image: url('img/animal-crossing-grass.jpg');
+  font-family: 'Helvetica', serif;
+  height: 100vh;
+  min-height: fit-content;
+}
+
+input,
+select {
   margin-top: 5px;
+  padding: 5px;
+  border-radius: 5px;
 }
