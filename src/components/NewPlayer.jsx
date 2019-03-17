@@ -39,7 +39,6 @@ class NewPlayer extends React.Component {
     ).then(resp => resp.json())
       .then((data) => {
         if (data.success === false) {
-          console.log(data.error);
           this.setState({ error: data.error });
         }
         this.setState({ success: data.success });

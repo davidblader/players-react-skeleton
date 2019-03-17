@@ -5,7 +5,11 @@ import AnimalCrossingContainer from './AnimalCrossingContainer';
 class NewVillager extends React.Component {
   constructor(props) {
     super(props);
-    this.getData = this.getData.bind(this);
+    this.state = { data: {} };
+  }
+
+  componentDidMount() {
+    this.getData();
   }
 
   getData() {
@@ -17,18 +21,21 @@ class NewVillager extends React.Component {
     };
     fetch(url, options)
       .then(resp => resp.json())
-      .then((data) => { console.log(data); });
-  }
-
-  componentDidMount() {
-    this.getData();
+      .then((data) => {
+        this.setState({ data });
+      });
   }
 
   render() {
+    const renderedData = Object.keys(this.state.data).map(d =>
+      <div key={d}>{this.state.data[d]}</div>);
     return (
-      <AnimalCrossingContainer>
-        <AnimalCrossingHeader>Work in Progress</AnimalCrossingHeader>
-      </AnimalCrossingContainer>
+      <React.Fragment>
+        <AnimalCrossingContainer>
+          <AnimalCrossingHeader>Work in Progress</AnimalCrossingHeader>
+        </AnimalCrossingContainer>
+        {renderedData}
+      </React.Fragment>
     );
   }
 }

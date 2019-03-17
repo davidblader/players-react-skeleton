@@ -105,7 +105,7 @@ class Roster extends React.Component {
     }).then(resp => resp.json())
       .then((data) => {
         if (data.success) {
-          this.setState({ players: data.players, loaded: true});
+          this.setState({ players: data.players, loaded: true });
         }
       });
   }
