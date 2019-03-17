@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login page loads and matches snapshot 1`] = `
+<div
+  className="animal-crossing-box"
+>
+  <span
+    className="animal-crossing-header"
+  >
+    Login
+  </span>
+  <div
+    id="login-inputs"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <div>
+        <span
+          className="hide"
+        >
+          Email
+        </span>
+        <input
+          id="email"
+          name="email"
+          onChange={[Function]}
+          placeholder="Email"
+          required={true}
+          type="text"
+        />
+      </div>
+      <div>
+        <span
+          className="hide"
+        >
+          Password
+        </span>
+        <input
+          id="password"
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          required={true}
+          type="password"
+        />
+      </div>
+      <div
+        className="btn-container"
+      >
+        <button
+          className="animal-crossing-btn"
+          id="login"
+          type="submit"
+        >
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
