@@ -21,6 +21,7 @@ class Login extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
   getUserError() {
+    // object to map obtuse server error message responses to something more human readable
     const userErrors = {};
     return userErrors[this.state.error.message] || this.state.error.message;
   }
@@ -50,6 +51,8 @@ class Login extends React.Component {
 
   render() {
     let errorMessage;
+    // Redirect to roster if login was successful,
+    // or user has active session (JWT is set)
     if (this.state.success === true || localStorage.getItem('JWT')) {
       return <Redirect to="/roster" />;
     } else if (this.state.success === false) {

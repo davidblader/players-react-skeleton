@@ -13,16 +13,20 @@ const PlayersTable = ({ players, deletePlayer }) => {
   // create a headers array to ensure proper order of fields
   const headersArr = ['first_name', 'last_name', 'rating', 'handedness'];
   const headers = headersArr.map(h => (
-    <th className="player-roster-cell">
+    <th key={h} className="player-roster-cell">
       {h.replace(/(^|_)(\w)/g, ($0, $1, $2) => ($1 && ' ') + $2.toUpperCase())}
     </th>
   ));
   const playerRows = players.map(p => (
-    <Player player={p} headers={headersArr} deletePlayer={deletePlayer} />
+    <Player key={p.id} player={p} headers={headersArr} deletePlayer={deletePlayer} />
   ));
   return (
     <table className="player-roster">
-      {headers}
+      <thead>
+        <tr>
+          {headers}
+        </tr>
+      </thead>
       <tbody>
         {playerRows}
       </tbody>
@@ -62,6 +66,13 @@ Player.propTypes = {
   }).isRequired,
   headers: PropTypes.arrayOf(PropTypes.string).isRequired,
   deletePlayer: PropTypes.func.isRequired,
+};
+
+const WelcomeMessage = () => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  const name = `${user.first_name} ${user.last_name}`;
+
+  return <h2 className="animal-crossing-font">Welcome {name}!</h2>;
 };
 
 class Roster extends React.Component {
@@ -105,6 +116,7 @@ class Roster extends React.Component {
     return (
       <div className="animal-crossing-box">
         <AnimalCrossingHeader>Neighborhood Roster</AnimalCrossingHeader>
+        <WelcomeMessage />
         {players}
         <div className="btn-container">
           <Link to="/player/new" href="/player/new">
