@@ -15,8 +15,12 @@
     "roots": [
       "./tests/unit/"
     ],
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
-    "setupFiles": ["./src/setupTests.js"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./src/setupTests.js"
+    ]
   },
   "dependencies": {
     "@babel/core": "^7.0.0",
@@ -33,6 +37,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-router": "^5.0.0",
     "react-router-dom": "^4.3.1",
     "react-test-renderer": "^16.8.4",
     "react-transition-group": "^2.6.1",
