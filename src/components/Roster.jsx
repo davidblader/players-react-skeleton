@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { logout } from './App';
 import Button from './Button';
 import AnimalCrossingHeader from './AnimalCrossingHeader';
 import AnimalCrossingContainer from './AnimalCrossingContainer';
@@ -145,7 +146,11 @@ class Roster extends React.Component {
 }
 
 Roster.propTypes = {
-  logout: PropTypes.func.isRequired,
+  logout: PropTypes.func,
+};
+
+Roster.defaultProps = {
+  logout,
 };
 
 export default Roster;

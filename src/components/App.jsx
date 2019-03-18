@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute';
 import Homepage from './Homepage';
 import Login from './Login';
 import Registration from './Registration';
 import Roster from './Roster';
 import NewPlayer from './NewPlayer';
-import NewVillager from './NewVillager';
+import NoMatch from './NoMatch';
 
 export const setSession = (JWT, user) => {
   localStorage.setItem('JWT', JWT);
@@ -25,9 +26,9 @@ const App = () =>
         <Route exact path="/" component={Homepage} />
         <Route path="/login" render={routerProps => <Login {...routerProps} setSession={setSession} />} />
         <Route path="/register" render={routerProps => <Registration {...routerProps} setSession={setSession} />} />
-        <Route path="/roster" render={routerProps => <Roster {...routerProps} logout={logout} />} />
-        <Route path="/player/new" component={NewPlayer} />
-        <Route path="/player/existing" component={NewVillager} />
+        <PrivateRoute path="/roster" component={() => <Roster logout={logout} />} />
+        <PrivateRoute path="/player/new" component={NewPlayer} />
+        <Route component={NoMatch} />
       </Switch>
     </Router>
   );
