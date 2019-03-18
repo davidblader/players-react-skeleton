@@ -22,7 +22,10 @@ Oh boy... where to start...
 Let's go by category
 
 ### Tests
-I am pretty embarrassed to admit that I have not really written unit tests for front-end based code before. This was my first time using Jest & Enzyme, and regretably I neglected to really dig into these tools and harness their full potential. As such, the majority of my unit tests are just simple shallow renders that are then compared to snapshots. I definitely have a lot more learning to do in this department, and if you guys have any helpful guides or tutorials you'd recommend that would be super awesome.
+I am pretty embarrassed to admit that I have not really written unit tests for front-end based code before. This was my first time using Jest & Enzyme, and regretably I neglected to really dig into these tools and harness their full potential. As such, the majority of my unit tests are just simple shallow renders that are then compared to snapshots. I definitely have a lot more learning to do in this department, and if you guys have any helpful guides or tutorials you'd recommend that would be awesome and very much appreciated.
 
 ### CSS
-I would rate my CSS with a generous "not bad" at best, and "primitive" if I'm being honest. One immediate improvement that comes to mind would be to just make my classes more granular. At the moment, I generally limited my components / elements to one class each, which ultimately lead to a lot of duplicated attributes for things like center positioning, fonts, colors, etc. when they could have been put into their own classes instead. I'm hoping to learn more about BEM and SCSS and apply these moving forward.
+I would rate my CSS with a generous "not bad" at best, and "primitive" if I'm being honest. One immediate improvement that comes to mind would be to just make my classes more granular. At the moment, I generally limited my components / elements to one class each, which ultimately lead to a lot of duplicated attributes for things like center positioning, fonts, colors, etc. when they could have been put into their own classes instead. I'm planning to learn more about BEM and SCSS and apply these moving forward.
+
+### React/JSX
+This part is going to be extensive, but I need to go to sleep now. brb
