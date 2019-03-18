@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
+import { MemoryRouter } from 'react-router';
 import Homepage from '../../src/components/Homepage';
 
 test('Homepage shallow renders', () => {
@@ -7,9 +8,14 @@ test('Homepage shallow renders', () => {
   expect(component).toMatchSnapshot();
 });
 
-test('Clicking Login button on Homepage redirects to /login', () => {
-  const component = mount(<Homepage />);
-  component.find('#login-btn').simulate('click');
-  expect(window.location.pathname).toBe('/login');
+test('Login link leads to /login', () => {
+  const component = mount(<MemoryRouter><Homepage /></MemoryRouter>);
+  expect(component.find('Link#login-link').prop('to')).toBe('/login');
+  component.unmount();
+});
+
+test('Register link leads to /register', () => {
+  const component = mount(<MemoryRouter><Homepage /></MemoryRouter>);
+  expect(component.find('Link#register-link').prop('to')).toBe('/register');
   component.unmount();
 });

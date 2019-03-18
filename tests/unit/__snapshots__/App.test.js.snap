@@ -22,6 +22,7 @@ exports[`App loads & matches snapshot 1`] = `
   >
     <a
       href="/login"
+      id="login-link"
       onClick={[Function]}
     >
       <button
@@ -37,6 +38,7 @@ exports[`App loads & matches snapshot 1`] = `
   >
     <a
       href="/register"
+      id="register-link"
       onClick={[Function]}
     >
       <button
