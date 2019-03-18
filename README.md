@@ -65,6 +65,7 @@ So, what's next? Aside from implementing everything I mentioned in my self-criti
 If you've read this far, **_YOU'RE THE BEST_**. Thank you a million times over. Sorry if I got a bit rambly. I put a lot of love and hardwork into this, but yet it still feels incomplete & (very) far from perfect (even the best laid schemes of mice and men, etc.).
 I learned a lot and can't wait to learn more.
 I hope you enjoy it, and I look forward to hear back about how I can make it better.
+
 All the best, and have a fantastic day,
 
 David
