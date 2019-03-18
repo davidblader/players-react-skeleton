@@ -26,8 +26,8 @@ const App = () =>
         <Route exact path="/" component={Homepage} />
         <Route path="/login" render={routerProps => <Login {...routerProps} setSession={setSession} />} />
         <Route path="/register" render={routerProps => <Registration {...routerProps} setSession={setSession} />} />
-        <PrivateRoute path="/roster" component={() => <Roster logout={logout} />} />
-        <PrivateRoute path="/player/new" component={NewPlayer} />
+        <PrivateRoute path="/roster" component={props => <Roster {...props} logout={logout} />} />
+        <PrivateRoute path="/player/new" component={props => <NewPlayer {...props} />} />
         <Route component={NoMatch} />
       </Switch>
     </Router>
