@@ -4,7 +4,8 @@ import App, { setSession, logout } from '../../src/components/App';
 
 test('App loads & matches snapshot', () => {
   const appComponent = renderer.create(<App />);
-  expect(appComponent.toJSON()).toMatchSnapshot();
+  const tree = appComponent.toJSON();
+  expect(tree).toMatchSnapshot();
 });
 
 test('setSession function populates JWT and user object in localStorage', () => {

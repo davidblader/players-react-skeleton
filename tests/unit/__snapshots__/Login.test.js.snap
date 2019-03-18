@@ -2,13 +2,16 @@
 
 exports[`Login page loads and matches snapshot 1`] = `
 <div
-  className="animal-crossing-box"
+  className="animal-crossing-container"
 >
   <span
     className="animal-crossing-header"
   >
     Login
   </span>
+  <div
+    className="animal-crossing-img isabelle"
+  />
   <div
     id="login-inputs"
   >

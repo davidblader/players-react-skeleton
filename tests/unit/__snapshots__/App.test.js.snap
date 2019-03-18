@@ -2,13 +2,21 @@
 
 exports[`App loads & matches snapshot 1`] = `
 <div
-  className="animal-crossing-box"
+  className="animal-crossing-container"
 >
   <span
     className="animal-crossing-header"
   >
-    Animal Crossing Fantasy Village
+    Animal Crossing
   </span>
+  <span
+    className="animal-crossing-header"
+  >
+    Fantasy Village
+  </span>
+  <div
+    className="animal-crossing-img villager"
+  />
   <div
     className="btn-container"
   >
