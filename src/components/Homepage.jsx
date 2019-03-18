@@ -13,12 +13,12 @@ const Homepage = () =>
       <Image src="villager" />
       <div className="btn-container">
         <Link to="/login" href="/login">
-          <Button>Login</Button>
+          <Button id="login-btn">Login</Button>
         </Link>
       </div>
       <div className="btn-container">
         <Link to="/register" href="/register">
-          <Button>Register</Button>
+          <Button id="register-btn">Register</Button>
         </Link>
       </div>
     </AnimalCrossingContainer>

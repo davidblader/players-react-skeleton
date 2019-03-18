@@ -26,6 +26,7 @@ exports[`App loads & matches snapshot 1`] = `
     >
       <button
         className="animal-crossing-btn"
+        id="login-btn"
       >
         Login
       </button>
@@ -40,6 +41,7 @@ exports[`App loads & matches snapshot 1`] = `
     >
       <button
         className="animal-crossing-btn"
+        id="register-btn"
       >
         Register
       </button>

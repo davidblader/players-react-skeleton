@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Homepage shallow renders 1`] = `
+<AnimalCrossingContainer>
+  <AnimalCrossingHeader>
+    Animal Crossing
+  </AnimalCrossingHeader>
+  <AnimalCrossingHeader>
+    Fantasy Village
+  </AnimalCrossingHeader>
+  <Image
+    src="villager"
+  />
+  <div
+    className="btn-container"
+  >
+    <Link
+      href="/login"
+      replace={false}
+      to="/login"
+    >
+      <Button
+        id="login-btn"
+      >
+        Login
+      </Button>
+    </Link>
+  </div>
+  <div
+    className="btn-container"
+  >
+    <Link
+      href="/register"
+      replace={false}
+      to="/register"
+    >
+      <Button
+        id="register-btn"
+      >
+        Register
+      </Button>
+    </Link>
+  </div>
+</AnimalCrossingContainer>
+`;
