@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewPlayer shallow renders 1`] = `
+<AnimalCrossingContainer>
+  <AnimalCrossingHeader>
+    New Villager
+  </AnimalCrossingHeader>
+  <Image
+    src="rover"
+  />
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <span
+        className="hide"
+      >
+        First Name
+      </span>
+      <input
+        id="firstName"
+        name="first_name"
+        onChange={[Function]}
+        placeholder="First Name"
+        required={true}
+        type="text"
+      />
+    </div>
+    <div>
+      <span
+        className="hide"
+      >
+        Last Name
+      </span>
+      <input
+        id="lastName"
+        name="last_name"
+        onChange={[Function]}
+        placeholder="Last Name"
+        required={true}
+        type="text"
+      />
+    </div>
+    <div>
+      <span
+        className="hide"
+      >
+        Rating
+      </span>
+      <input
+        id="rating"
+        max="10000"
+        min="0"
+        name="rating"
+        onChange={[Function]}
+        placeholder="Rating"
+        required={true}
+        type="number"
+      />
+    </div>
+    <div>
+      <span
+        className="hide"
+      >
+        Handedness
+      </span>
+      <select
+        id="handedness"
+        name="handedness"
+        onChange={[Function]}
+      >
+        <option
+          value={null}
+        >
+          Handedness
+        </option>
+        <option
+          value="left"
+        >
+          Left
+        </option>
+        <option
+          value="right"
+        >
+          Right
+        </option>
+      </select>
+    </div>
+    <div
+      className="btn-container"
+    >
+      <input
+        className="animal-crossing-btn"
+        id="create"
+        type="submit"
+      />
+    </div>
+  </form>
+</AnimalCrossingContainer>
+`;

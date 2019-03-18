@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading shallow renders 1`] = `
+<AnimalCrossingContainer>
+  <AnimalCrossingHeader>
+    Loading...
+  </AnimalCrossingHeader>
+  <Image
+    src="gyroid"
+  />
+</AnimalCrossingContainer>
+`;

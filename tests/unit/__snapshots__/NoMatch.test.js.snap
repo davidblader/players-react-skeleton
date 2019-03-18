@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoMatch shallow renders 1`] = `
+<AnimalCrossingContainer>
+  <AnimalCrossingHeader>
+    404
+  </AnimalCrossingHeader>
+</AnimalCrossingContainer>
+`;

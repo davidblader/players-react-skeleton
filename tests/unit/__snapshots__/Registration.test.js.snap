@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Registration shallow renders 1`] = `
+<AnimalCrossingContainer
+  id="registration"
+>
+  <AnimalCrossingHeader>
+    Create an Account
+  </AnimalCrossingHeader>
+  <Image
+    src="tomnook"
+  />
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <span
+        className="hide"
+      >
+        First Name
+      </span>
+      <input
+        id="firstName"
+        name="first_name"
+        onChange={[Function]}
+        placeholder="First Name"
+        required={true}
+        type="text"
+      />
+    </div>
+    <div>
+      <span
+        className="hide"
+      >
+        Last Name
+      </span>
+      <input
+        id="lastName"
+        name="last_name"
+        onChange={[Function]}
+        placeholder="Last Name"
+        required={true}
+        type="text"
+      />
+    </div>
+    <div>
+      <span
+        className="hide"
+      >
+        Email
+      </span>
+      <input
+        id="email"
+        name="email"
+        onChange={[Function]}
+        placeholder="Email"
+        required={true}
+        type="text"
+      />
+    </div>
+    <div>
+      <span
+        className="hide"
+      >
+        Password
+      </span>
+      <input
+        id="password"
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        required={true}
+        type="password"
+      />
+    </div>
+    <div>
+      <span
+        className="hide"
+      >
+        Confirm Password
+      </span>
+      <input
+        id="confirmPassword"
+        name="confirm_password"
+        onChange={[Function]}
+        placeholder="Confirm Password"
+        required={true}
+        type="password"
+      />
+    </div>
+    <div
+      className="btn-container"
+    >
+      <input
+        className="animal-crossing-btn"
+        id="register"
+        type="submit"
+        value="Register"
+      />
+    </div>
+  </form>
+</AnimalCrossingContainer>
+`;
