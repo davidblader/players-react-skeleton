@@ -10,7 +10,11 @@ import PropTypes from 'prop-types';
 const Image = ({ src }) => (<div className={`animal-crossing-img ${src}`} />);
 
 Image.propTypes = {
-  src: PropTypes.string.isRequired,
+  src: PropTypes.string,
+};
+
+Image.defaultProps = {
+  src: 'gyroid',
 };
 
 export default Image;

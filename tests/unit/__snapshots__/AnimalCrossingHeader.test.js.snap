@@ -3,5 +3,7 @@
 exports[`AnimalCrossingContainer shallow renders 1`] = `
 <span
   className="animal-crossing-header"
-/>
+>
+  Test
+</span>
 `;
