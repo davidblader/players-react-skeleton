@@ -3,7 +3,7 @@
 ## Preamble
 First off, thanks for giving me the opportunity to take this assessment! I had a lot of fun with it and pushed myself to learn and experiment with new things.
 I know you guys are busy so I will try to keep this brief.
-The theme of my game management platform is Animal Crossing. For the uninitiated, Animal Crossing is a video game
+The theme of my game management platform is [Animal Crossing](https://en.wikipedia.org/wiki/Animal_Crossing). For the uninitiated, Animal Crossing is a video game
 series usually about moving into a town filled with bipedal animal creatures, and paying off a mortgage to [a raccoon who burdens you with an endless series of predatory loans.](https://github.com/davidblader/players-react-skeleton/blob/master/src/img/TomNook.png)
 It was great to get to build an app based on one of my all time favorite games and I'll probably continue developing it until
 it's up to par with my original vision for it.
