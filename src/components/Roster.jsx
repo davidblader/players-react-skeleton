@@ -6,6 +6,7 @@ import Button from './Button';
 import AnimalCrossingHeader from './AnimalCrossingHeader';
 import AnimalCrossingContainer from './AnimalCrossingContainer';
 import Loading from './Loading';
+import { Redirect } from 'react-router-dom';
 
 const NoPlayers = () =>
   (
@@ -90,6 +91,7 @@ class Roster extends React.Component {
     this.state = {
       players: [],
       loaded: false,
+      redirectToLogin: false,
     };
 
     this.fetchData = this.fetchData.bind(this);
@@ -107,6 +109,9 @@ class Roster extends React.Component {
       .then((data) => {
         if (data.success) {
           this.setState({ players: data.players, loaded: true });
+          // if server responds with 403 Forbidden, redirect to login
+        } else if (data.error.status_code === 403) {
+          this.setState({ redirectToLogin: true, loaded: true });
         }
       });
   }
@@ -122,6 +127,10 @@ class Roster extends React.Component {
   render() {
     if (!this.state.loaded) {
       return <Loading />;
+    }
+
+    if (this.state.redirectToLogin) {
+      return <Redirect to="/login" />;
     }
 
     const players = this.state.players.length > 0

@@ -11,7 +11,7 @@ exports[`Roster shallow renders 1`] = `
       "entries": Array [
         Object {
           "hash": "",
-          "key": "go1vs0",
+          "key": "t53yeb",
           "pathname": "/",
           "search": "",
           "state": undefined,
@@ -25,7 +25,7 @@ exports[`Roster shallow renders 1`] = `
       "listen": [Function],
       "location": Object {
         "hash": "",
-        "key": "go1vs0",
+        "key": "t53yeb",
         "pathname": "/",
         "search": "",
         "state": undefined,
