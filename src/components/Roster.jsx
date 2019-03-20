@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { logout } from './App';
 import Button from './Button';
 import AnimalCrossingHeader from './AnimalCrossingHeader';
 import AnimalCrossingContainer from './AnimalCrossingContainer';
 import Loading from './Loading';
-import { Redirect } from 'react-router-dom';
 
 const NoPlayers = () =>
   (
