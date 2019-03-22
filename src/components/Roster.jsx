@@ -89,7 +89,7 @@ class Roster extends React.Component {
     super(props);
     this.state = {
       players: [],
-      loaded: false,
+      isLoaded: false,
       redirectToLogin: false,
     };
 
@@ -107,10 +107,10 @@ class Roster extends React.Component {
     }).then(resp => resp.json())
       .then((data) => {
         if (data.success) {
-          this.setState({ players: data.players, loaded: true });
+          this.setState({ players: data.players, isLoaded: true });
           // if server responds with 403 Forbidden, redirect to login
         } else if (data.error.status_code === 403) {
-          this.setState({ redirectToLogin: true, loaded: true });
+          this.setState({ redirectToLogin: true, isLoaded: true });
         }
       });
   }
@@ -124,7 +124,7 @@ class Roster extends React.Component {
   }
 
   render() {
-    if (!this.state.loaded) {
+    if (!this.state.isLoaded) {
       return <Loading />;
     }
 
